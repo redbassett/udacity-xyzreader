@@ -34,6 +34,7 @@
             android:paddingRight="16dp"
             android:paddingBottom="4dp"
             android:textColor="@color/ltgray"
+            android:textStyle="bold"
             android:ellipsize="end"
             android:maxLines="4"
             android:layout_toRightOf="@id/thumbnail"
@@ -52,7 +53,8 @@
             android:singleLine="true"
             android:ellipsize="end"
             android:layout_toRightOf="@id/thumbnail"
-            android:layout_toEndOf="@id/thumbnail" />
+            android:layout_toEndOf="@id/thumbnail"
+            android:layout_below="@id/article_title"/>
     </RelativeLayout>
 
 </android.support.v7.widget.CardView>
