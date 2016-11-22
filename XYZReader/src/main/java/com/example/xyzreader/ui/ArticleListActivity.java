@@ -47,9 +47,25 @@ public class ArticleListActivity extends ActionBarActivity implements
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         getLoaderManager().initLoader(0, null, this);
 
+        // It's really gross that Android doesn't have a better way to do this
+        mRecyclerView.setPadding(
+                mRecyclerView.getPaddingLeft(),
+                mRecyclerView.getPaddingTop() - getStatusBarHeight(),
+                mRecyclerView.getPaddingRight(),
+                mRecyclerView.getPaddingBottom()
+        );
+
         if (savedInstanceState == null) {
             refresh();
         }
+    }
+
+    // Honestly, this method should never exist
+    private int getStatusBarHeight() {
+        int resourceId = getResources().getIdentifier("status_bar_height", "dimen", "android");
+        if (resourceId > 0)
+            return getResources().getDimensionPixelSize(resourceId);
+        return 0;
     }
 
     private void refresh() {
