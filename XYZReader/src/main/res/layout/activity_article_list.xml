@@ -15,7 +15,7 @@
         android:paddingTop="116dp"
         android:paddingLeft="@dimen/list_side_margin"
         android:paddingRight="@dimen/list_side_margin"
-        android:paddingBottom="28dp" />
+        android:paddingBottom="8dp" />
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/toolbar_container"
