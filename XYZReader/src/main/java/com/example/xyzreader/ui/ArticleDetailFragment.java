@@ -132,7 +132,8 @@ public class ArticleDetailFragment extends Fragment implements
                             + mCursor.getString(ArticleLoader.Query.AUTHOR);
 
             mToolbar.setTitle(articleTitle);
-            mToolbar.setSubtitle(articleByline);
+            // TODO: figure out subtitles on collapsing toolbars
+//            mToolbar.setSubtitle(articleByline);
 
             bodyView.setText(Html.fromHtml(mCursor.getString(ArticleLoader.Query.BODY)));
             ImageLoaderHelper.getInstance(getActivity()).getImageLoader()
