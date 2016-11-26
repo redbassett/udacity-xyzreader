@@ -70,7 +70,8 @@
                 app:layout_collapseMode="pin"
                 android:layout_gravity="bottom"
                 tools:title="Article Title"
-                tools:subtitle="Author Name">
+                tools:subtitle="Author Name"
+                android:layout_marginTop="@dimen/status_bar_height">
 
             </android.support.v7.widget.Toolbar>
 
