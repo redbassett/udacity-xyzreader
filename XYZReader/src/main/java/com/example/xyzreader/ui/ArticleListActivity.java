@@ -9,7 +9,7 @@ import android.content.Loader;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.Toolbar;
@@ -59,7 +59,8 @@ public class ArticleListActivity extends ActionBarActivity implements
                 mRecyclerView.getPaddingBottom()
         );
 
-        mLayoutManager = new LinearLayoutManager(this);
+        mLayoutManager = new GridLayoutManager(this,
+                getApplicationContext().getResources().getInteger(R.integer.list_column_count));
         mRecyclerView.setLayoutManager(mLayoutManager);
 
         if (savedInstanceState == null) {
