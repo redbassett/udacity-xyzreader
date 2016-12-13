@@ -46,6 +46,7 @@ public class ArticleDetailFragment extends Fragment implements
     private Toolbar mToolbar;
     private int mMutedColor = 0xFF333333;
     private ImageView mPhotoView;
+    private TextView mBodyView;
     private boolean mIsCard = false;
 
     /**
@@ -100,6 +101,8 @@ public class ArticleDetailFragment extends Fragment implements
         mToolbar = (Toolbar) mRootView.findViewById(R.id.toolbar);
         mPhotoView = (ImageView) mRootView.findViewById(R.id.photo);
 
+        mBodyView = (TextView) mRootView.findViewById(R.id.article_body);
+
         mRootView.findViewById(R.id.share_fab).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -118,8 +121,7 @@ public class ArticleDetailFragment extends Fragment implements
             return;
         }
 
-        TextView bodyView = (TextView) mRootView.findViewById(R.id.article_body);
-        bodyView.setTypeface(Typeface.createFromAsset(getResources().getAssets(), "Rosario-Regular.ttf"));
+        mBodyView.setTypeface(Typeface.createFromAsset(getResources().getAssets(), "Rosario-Regular.ttf"));
 
         if (mCursor != null) {
             mRootView.setAlpha(0);
@@ -136,7 +138,7 @@ public class ArticleDetailFragment extends Fragment implements
             // TODO: figure out subtitles on collapsing toolbars
 //            mToolbar.setSubtitle(articleByline);
 
-            bodyView.setText(Html.fromHtml(mCursor.getString(ArticleLoader.Query.BODY)));
+            mBodyView.setText(Html.fromHtml(mCursor.getString(ArticleLoader.Query.BODY)));
 
             Picasso.with(getActivity())
                     .load(mCursor.getString(ArticleLoader.Query.THUMB_URL))
@@ -168,7 +170,7 @@ public class ArticleDetailFragment extends Fragment implements
             mRootView.setVisibility(View.GONE);
             mToolbar.setTitle("N/A");
             mToolbar.setSubtitle("N/A");
-            bodyView.setText("N/A");
+            mBodyView.setText("N/A");
         }
     }
 
