@@ -68,7 +68,8 @@
                 android:layout_gravity="bottom"
                 tools:title="Article Title"
                 tools:subtitle="Author Name"
-                android:layout_marginTop="@dimen/status_bar_height">
+                android:layout_marginTop="@dimen/status_bar_height"
+                android:background="@drawable/scrim">
 
             </android.support.v7.widget.Toolbar>
 
