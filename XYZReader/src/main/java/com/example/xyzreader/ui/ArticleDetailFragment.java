@@ -48,7 +48,6 @@ public class ArticleDetailFragment extends Fragment implements
     private ImageView mPhotoView;
     private TextView mByline;
     private TextView mBodyView;
-    private boolean mIsCard = false;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -73,7 +72,6 @@ public class ArticleDetailFragment extends Fragment implements
             mItemId = getArguments().getLong(ARG_ITEM_ID);
         }
 
-        mIsCard = getResources().getBoolean(R.bool.detail_is_card);
         setHasOptionsMenu(true);
     }
 
