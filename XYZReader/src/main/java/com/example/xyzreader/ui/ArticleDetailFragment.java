@@ -46,6 +46,7 @@ public class ArticleDetailFragment extends Fragment implements
     private Toolbar mToolbar;
     private int mMutedColor = 0xFF333333;
     private ImageView mPhotoView;
+    private TextView mByline;
     private TextView mBodyView;
     private boolean mIsCard = false;
 
@@ -101,6 +102,7 @@ public class ArticleDetailFragment extends Fragment implements
         mToolbar = (Toolbar) mRootView.findViewById(R.id.toolbar);
         mPhotoView = (ImageView) mRootView.findViewById(R.id.photo);
 
+        mByline = (TextView) mRootView.findViewById(R.id.byline);
         mBodyView = (TextView) mRootView.findViewById(R.id.article_body);
 
         mRootView.findViewById(R.id.share_fab).setOnClickListener(new View.OnClickListener() {
@@ -131,12 +133,12 @@ public class ArticleDetailFragment extends Fragment implements
             String articleByline = DateUtils.getRelativeTimeSpanString(
                             mCursor.getLong(ArticleLoader.Query.PUBLISHED_DATE),
                             System.currentTimeMillis(), DateUtils.HOUR_IN_MILLIS,
-                            DateUtils.FORMAT_ABBREV_ALL).toString()
+                            DateUtils.FORMAT_ABBREV_ALL).toString() + " by "
                             + mCursor.getString(ArticleLoader.Query.AUTHOR);
 
             mToolbar.setTitle(articleTitle);
-            // TODO: figure out subtitles on collapsing toolbars
-//            mToolbar.setSubtitle(articleByline);
+
+            mByline.setText(articleByline);
 
             mBodyView.setText(Html.fromHtml(mCursor.getString(ArticleLoader.Query.BODY)));
 
@@ -169,8 +171,8 @@ public class ArticleDetailFragment extends Fragment implements
         } else {
             mRootView.setVisibility(View.GONE);
             mToolbar.setTitle("N/A");
-            mToolbar.setSubtitle("N/A");
             mBodyView.setText("N/A");
+            mByline.setText("N/A");
         }
     }
 
