@@ -17,7 +17,7 @@
 
 <resources>
 
-    <style name="Theme.XYZ.NoActionBar" parent="Theme.AppCompat.NoActionBar" >
+    <style name="Theme.XYZ.NoActionBar" parent="Theme.AppCompat.NoActionBar">
         <item name="colorAccent">@color/theme_accent</item>
     </style>
     
